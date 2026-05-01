@@ -62,7 +62,12 @@ class BaseFinanceAgent:
         try:
             self._cw.put_metric_data(
                 Namespace=self.namespace,
-                MetricData=[{"MetricName": metric_name, "Value": value, "Unit": unit, "Dimensions": dims}],
+                MetricData=[
+                    # Per-agent dimension — for per-agent breakdown widgets
+                    {"MetricName": metric_name, "Value": value, "Unit": unit, "Dimensions": dims},
+                    # No-dimension aggregate — for any widget watching the bare metric name
+                    {"MetricName": metric_name, "Value": value, "Unit": unit, "Dimensions": []},
+                ],
             )
         except Exception as e:
             logger.warning("Metric emit failed (%s): %s", metric_name, e)

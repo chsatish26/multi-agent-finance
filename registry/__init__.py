@@ -1,1 +1,3 @@
-# Paste registry/__init__.py content here
+from .agentcore_registry import AgentRegistry
+
+__all__ = ["AgentRegistry"]

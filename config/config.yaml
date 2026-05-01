@@ -1,1 +1,27 @@
-# Paste config.yaml content here
+aws:
+  region: us-east-1
+  account_id: "196856463470"
+
+bedrock:
+  model_id: us.anthropic.claude-sonnet-4-6
+  max_tokens: 1024
+
+observability:
+  log_group: /agentcore/agents
+  log_retention_days: 30
+  dashboard_name: AgentCore-Monitoring
+  metrics_namespace: AgentCore
+
+agents:
+  stock_analyst:
+    name: StockAnalyst
+    description: Analyzes stock performance and provides buy/sell recommendations
+  market_summarizer:
+    name: MarketSummarizer
+    description: Summarizes market conditions and macro trends
+  credit_evaluator:
+    name: CreditEvaluator
+    description: Evaluates credit risk for loan applications
+  risk_assessor:
+    name: RiskAssessor
+    description: Assesses portfolio risk and generates risk reports
